@@ -1,8 +1,8 @@
 <?php
-include 'base.php';
+include 'app/base.php';
 auth('admin','member');
 $_title = 'BlueWave Sushi';
-include 'head2.php';
+include 'app/head2.php';
 ?>
 
 <style>
@@ -284,15 +284,15 @@ body{
 
 <!-- HERO -->
 <section class="sushi-hero">
-    <div class="hero-slide active"><img src="images/sushi_b_8.avif"></div>
-    <div class="hero-slide"><img src="images/sushi_b_2.jpg"></div>
-    <div class="hero-slide"><img src="images/sushi_b_6.avif"></div>
+    <div class="hero-slide active"><img src="app/images/sushi_b_8.avif"></div>
+    <div class="hero-slide"><img src="app/images/sushi_b_2.jpg"></div>
+    <div class="hero-slide"><img src="app/images/sushi_b_6.avif"></div>
 
     <div class="hero-overlay">
         <div class="hero-content">
             <h1>BLUEWAVE SUSHI</h1>
             <p>Refined sushi. Crafted with silence & precision.</p>
-            <a href="product/product.php" class="hero-btn">DISCOVER MENU</a>
+            <a href="app/product/product.php" class="hero-btn">DISCOVER MENU</a>
         </div>
     </div>
 </section>
@@ -302,17 +302,17 @@ body{
     <h2 class="section-title">SIGNATURE SELECTION</h2>
     <div class="signature-grid">
         <div class="signature-item">
-            <img src="images/Dragon_Roll.jpg">
+            <img src="app/images/Dragon_Roll.jpg">
             <h3>Dragon Roll</h3>
             <p>Unagi · Avocado · House Sauce</p>
         </div>
         <div class="signature-item">
-            <img src="images/Salmon_Nigiri.jpg">
+            <img src="app/images/Salmon_Nigiri.jpg">
             <h3>Salmon Nigiri</h3>
             <p>Premium cut · Hand-pressed rice</p>
         </div>
         <div class="signature-item">
-            <img src="images/Rainbow_Roll.jpg">
+            <img src="app/images/Rainbow_Roll.jpg">
             <h3>Rainbow Roll</h3>
             <p>Seasonal fish · Balanced harmony</p>
         </div>
@@ -336,7 +336,7 @@ body{
             </ul>
         </div>
         <div class="about-image">
-            <img src="images/sushi_3.jpg">
+            <img src="app/images/sushi_3.jpg">
         </div>
     </div>
 </section>
@@ -346,7 +346,7 @@ body{
     <div class="chef-wrapper">
 
         <div class="chef-image">
-            <img src="images/sushi_chef.avif" alt="Sushi Chef">
+            <img src="app/images/sushi_chef.avif" alt="Sushi Chef">
         </div>
 
         <div class="chef-text">
@@ -414,4 +414,4 @@ setInterval(()=>{
 },5000);
 </script>
 
-<?php include 'footer.php'; ?>
+<?php include 'app/footer.php'; ?>
