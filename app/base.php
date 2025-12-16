@@ -42,11 +42,13 @@ function req($key, $value = null) {
 }
 
 // Redirect to URL
-function redirect($url = null) {
-    $url ??= $_SERVER['REQUEST_URI'];
-    header("Location: $url");
-    exit();
+function redirect($url){
+    if (!headers_sent()) {
+        header("Location: $url");
+        exit;
+    }
 }
+
 
 // Set or get temporary session variable
 function temp($key, $value = null) {

@@ -4,17 +4,17 @@
     <!-- About Company -->
     <div class="bw-footer-column">
       <h4 class="bw-footer-title">BlueWave</h4>
-      <a href=" about_us/us.php">About Us</a>
-      <a href="about_us/feedback_view.php">Feedback</a>
-      <a href="about_us/contact.php">Contact Us</a>
-      <a href="about_us/FAQ.php">FAQ</a>
+      <a href="us.php">About Us</a>
+      <a href="feedback_view.php">Feedback</a>
+      <a href="contact.php">Contact Us</a>
+      <a href="FAQ.php">FAQ</a>
     </div>
 
     <!-- Policy & Product -->
     <div class="bw-footer-column">
       <h4 class="bw-footer-title">Policy & Offerings</h4>
-      <a href="product/product.php">Menu</a>
-      <a href="about_us/term_policies.php">Terms & Conditions</a>
+      <a href="product.php">Menu</a>
+      <a href="term_policies.php">Terms & Conditions</a>
     </div>
 
     <!-- Payments -->

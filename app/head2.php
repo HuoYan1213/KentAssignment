@@ -22,8 +22,8 @@
         <?php if ($_user): ?>
             <div class="bw-user">
                 <span class="bw-role"><?= strtoupper($_user->role) ?></span>
-                <img src="user/images_user/<?= $_user->photo ?>" alt="User"
-                     onclick="window.location.href='user/profile.php';">
+                <img src="images_user/<?= $_user->photo ?>" alt="User"
+                     onclick="window.location.href='profile.php';">
             </div>
         <?php endif ?>
     </div>
@@ -33,21 +33,21 @@
     <div class="bw-nav-inner">
         <div class="bw-nav-left">
             <a href="main.php">HOME</a>
-            <?php if ($_user): ?><a href="product/product.php">MENU</a><?php endif ?>
-            <?php if ($_user): ?><a href="Cart/cart.php">CART</a><?php endif ?>
-            <?php if ($_user?->role == 'admin'): ?><a href="staff/home_pagae.php">MANAGEMENT</a><?php endif ?>
+            <?php if ($_user): ?><a href="user_product.php">MENU</a><?php endif ?>
+            <?php if ($_user): ?><a href="cart.php">CART</a><?php endif ?>
+            <?php if ($_user?->role == 'admin'): ?><a href="home_pagae.php">MANAGEMENT</a><?php endif ?>
         </div>
 
         <div class="bw-nav-right">
-            <a href="about_us/us.php">ABOUT</a>
+            <a href="us.php">ABOUT</a>
 
             <?php if ($_user): ?>
             <div class="bw-dropdown">
                 <span><?= strtoupper($_user->name) ?></span>
                 <div class="bw-dropdown-menu">
-                    <a href="user/profile.php">Profile</a>
-                    <a href="user/password.php">Security</a>
-                    <a href="user/history.php">Orders</a>
+                    <a href="profile.php">Profile</a>
+                    <a href="password.php">Security</a>
+                    <a href="history.php">Orders</a>
                     <a href="logout.php">Logout</a>
                 </div>
             </div>

@@ -1,5 +1,0 @@
-<?php
-include "../base.php";
-
-
-?>

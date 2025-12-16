@@ -20,7 +20,7 @@ body{
 /* ===== Hero Background ===== */
 .welcome-hero{
     height:100vh;
-    background:url("images/sushi_b_7.jpg") center/cover no-repeat;
+    background:url("app/images/sushi_b_7.jpg") center/cover no-repeat;
     position:relative;
 }
 

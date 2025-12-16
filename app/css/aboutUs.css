@@ -34,7 +34,7 @@ body {
   width: 100vw;      
   margin: 0;          
   border-radius: 0;  
-  background: url("../about_us/picture/b_1.webp") center/cover no-repeat;
+  background: url("../picture/b_1.webp") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -383,7 +383,7 @@ body {
     padding: 120px 10% 100px;
     background:
         linear-gradient(rgba(11,44,61,.75), rgba(11,44,61,.75)),
-        url("../about_us/picture/policy.jpg") center/cover no-repeat;
+        url("../picture/policy.jpg") center/cover no-repeat;
     text-align: center;
     color: #fff;
 }
@@ -465,7 +465,7 @@ body {
     padding:120px 10% 100px;
     background:
         linear-gradient(rgba(11,44,61,.75), rgba(11,44,61,.75)),
-        url("../about_us/picture/Faq.jpeg") center/cover no-repeat;
+        url("../picture/Faq.jpeg") center/cover no-repeat;
     text-align:center;
     color:#fff;
 }

@@ -292,7 +292,7 @@ body{
         <div class="hero-content">
             <h1>BLUEWAVE SUSHI</h1>
             <p>Refined sushi. Crafted with silence & precision.</p>
-            <a href="product/product.php" class="hero-btn">DISCOVER MENU</a>
+            <a href="user_product.php" class="hero-btn">DISCOVER MENU</a>
         </div>
     </div>
 </section>
