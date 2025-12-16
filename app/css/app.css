@@ -1,0 +1,164 @@
+/* === GLOBAL RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* ================= BLUEWAVE HEADER ================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+body{font-family: 'Inter', sans-serif;}
+
+
+.bw-header {
+    background: linear-gradient(180deg, #061a24, #071f2c);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.bw-header-inner {
+    max-width: 1600px;
+    margin: auto;
+    padding: 24px 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bw-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+}
+
+.bw-brand img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.bw-brand-name {
+    color: #f8fafc;
+    font-size: 15px;
+    letter-spacing: 6px;
+    font-weight: 300;
+}
+
+/* ================= USER ================= */
+
+.bw-user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.bw-role {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #9fb6c9;
+}
+
+.bw-user img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* ================= NAV ================= */
+
+.bw-nav {
+    background: #0a2a3a;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.bw-nav-inner {
+    max-width: 1600px;
+    margin: auto;
+    padding: 16px 110px;
+    display: flex;                         /* 🔥 关键 */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bw-nav-left,
+.bw-nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.bw-nav-left a,
+.bw-nav-right a {
+    color: #e5e7eb;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    margin-right: 46px;
+    opacity: .85;
+    transition: opacity .3s;
+}
+
+.bw-nav-left a:hover,
+.bw-nav-right a:hover {
+    opacity: 1;
+}
+
+/* ================= DROPDOWN ================= */
+.bw-dropdown {
+    position: relative;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #f8fafc;
+    cursor: pointer;
+}
+
+.bw-dropdown-menu {
+    position: absolute;
+    top: 150%;
+    right: 0;
+    background: #ffffff;
+    min-width: 180px;
+    border-radius: 16px;
+    box-shadow: 0 40px 80px rgba(0,0,0,.25);
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: .3s ease;
+    z-index: 9999; 
+}
+
+.bw-dropdown-menu a {
+    display: block;
+    padding: 16px 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #1f2933;
+}
+
+.bw-dropdown-menu a:hover {
+    background: #f1f5f9;
+}
+
+.bw-dropdown:hover .bw-dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.bw-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    height: 12px;
+    pointer-events: auto;
+}
