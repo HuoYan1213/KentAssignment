@@ -4,27 +4,27 @@
     <!-- About Company -->
     <div class="bw-footer-column">
       <h4 class="bw-footer-title">BlueWave</h4>
-      <a href="/HewAss/app/about_us/us.php">About Us</a>
-      <a href="/HewAss/app/about_us/feedback_view.php">Feedback</a>
-      <a href="/HewAss/app/about_us/contact.php">Contact Us</a>
-      <a href="/HewAss/app/about_us/FAQ.php">FAQ</a>
+      <a href=" about_us/us.php">About Us</a>
+      <a href="about_us/feedback_view.php">Feedback</a>
+      <a href="about_us/contact.php">Contact Us</a>
+      <a href="about_us/FAQ.php">FAQ</a>
     </div>
 
     <!-- Policy & Product -->
     <div class="bw-footer-column">
       <h4 class="bw-footer-title">Policy & Offerings</h4>
-      <a href="/HewAss/app/product/product.php">Menu</a>
-      <a href="/HewAss/app/about_us/term_policies.php">Terms & Conditions</a>
+      <a href="product/product.php">Menu</a>
+      <a href="about_us/term_policies.php">Terms & Conditions</a>
     </div>
 
     <!-- Payments -->
     <div class="bw-footer-column bw-footer-payments">
       <h4 class="bw-footer-title">Accepted Payments</h4>
       <div class="bw-payment-icons">
-        <img src="/HewAss/app/images/visa.png" alt="Visa">
-        <img src="/HewAss/app/images/mastercard.png" alt="Mastercard">
-        <img src="/HewAss/app/images/mydebit.png" alt="MyDebit">
-        <img src="/HewAss/app/images/TnG1.png" alt="TNG">
+        <img src="images/visa.png" alt="Visa">
+        <img src="images/mastercard.png" alt="Mastercard">
+        <img src="images/mydebit.png" alt="MyDebit">
+        <img src="images/TnG1.png" alt="TNG">
       </div>
       <p class="bw-footer-credit">
         Developed with ❤️ by <strong>BLUEWAVE SUSHI</strong> &middot; &copy; <?= date('Y') ?>
