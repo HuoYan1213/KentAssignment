@@ -306,7 +306,7 @@ require 'head2.php';
                 <td>RM <?= htmlspecialchars(number_format($s->p_price, 2)) ?></td>
                 <td><?= htmlspecialchars($s->p_quantity) ?></td>
                 <td><?= htmlspecialchars(substr($s->p_description, 0, 30)) . (strlen($s->p_description) > 30 ? '...' : '') ?></td>
-                <td><img src="images_product/<?= htmlspecialchars($s->p_photo) ?>" class="product-image" alt="<?= htmlspecialchars($s->p_name) ?>"></td>
+                <td><img src="<?= file_exists("images_product/$s->p_photo") ? "images_product/" . htmlspecialchars($s->p_photo) : "images/photo.jpg" ?>" class="product-image" alt="<?= htmlspecialchars($s->p_name) ?>"></td>
                 <td>
                     <a href="product_edit.php?edit_id=<?= urlencode($s->p_id) ?>" class="action-btn btn-edit">Edit</a>
                     <a href="?delete_id=<?= urlencode($s->p_id) ?>" class="action-btn btn-delete" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>

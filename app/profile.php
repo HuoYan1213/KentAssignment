@@ -117,7 +117,6 @@ require 'head2.php';
                 <label for="photo">Profile Photo</label>
                 <label class="upload-photo">
                     <?= html_file('photo', 'image/*', 'hidden') ?>
-                    <!-- AWS Fix: 檢查文件是否存在，如果因實例重啟導致圖片丟失，則顯示默認圖 -->
                     <img src="<?= file_exists("images_user/$photo") ? "images_user/$photo" : "images/photo.jpg" ?>" alt="Profile photo">
                 </label>
                 <span class="upload-hint">Click photo to change</span>

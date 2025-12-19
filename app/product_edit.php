@@ -238,7 +238,7 @@ require 'head2.php';
                 <input type="file" id="p_photo" name="p_photo" accept="image/*">
                 <?php if (isset($product) && !empty($product->p_photo)): ?>
                     <div class="photo-preview">
-                        <img src="images_product/<?= htmlspecialchars($product->p_photo) ?>" alt="<?= htmlspecialchars($product->p_name) ?>">
+                        <img src="<?= file_exists("images_product/$product->p_photo") ? "images_product/" . htmlspecialchars($product->p_photo) : "images/photo.jpg" ?>" alt="<?= htmlspecialchars($product->p_name) ?>">
                         <p style="color: #6b7280; font-size: 12px; margin-top: 8px;">Current photo</p>
                     </div>
                 <?php endif; ?>

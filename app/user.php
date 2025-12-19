@@ -356,7 +356,7 @@ require 'head2.php';
                 <td><?= htmlspecialchars($s->name) ?></td>
                 <td><?= htmlspecialchars($s->email) ?></td>
                 <td><span style="background: <?= $s->role == 'admin' ? '#fef3c7' : '#dbeafe' ?>; color: <?= $s->role == 'admin' ? '#b45309' : '#1e40af' ?>; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 600;"><?= htmlspecialchars($s->role) ?></span></td>
-                <td><img src="images_user/<?= htmlspecialchars($s->photo) ?>" class="user-photo" alt="<?= htmlspecialchars($s->name) ?>"></td>
+                <td><img src="<?= file_exists("images_user/$s->photo") ? "images_user/" . htmlspecialchars($s->photo) : "images/photo.jpg" ?>" class="user-photo" alt="<?= htmlspecialchars($s->name) ?>"></td>
                 <td>
                     <a href="user_edit.php?edit_id=<?= urlencode($s->id) ?>" class="action-btn btn-edit">Edit</a> 
                 </td>

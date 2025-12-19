@@ -22,7 +22,7 @@
         <?php if ($_user): ?>
             <div class="bw-user">
                 <span class="bw-role"><?= strtoupper($_user->role) ?></span>
-                <img src="images_user/<?= $_user->photo ?>" alt="User"
+                <img src="<?= ($_user->photo && file_exists("images_user/$_user->photo")) ? "images_user/$_user->photo" : "images/photo.jpg" ?>" alt="User"
                      onclick="window.location.href='profile.php';">
             </div>
         <?php endif ?>
@@ -55,5 +55,3 @@
         </div>
     </div>
 </nav>
-
-

@@ -277,7 +277,7 @@ require 'head2.php';
                 <input type="file" id="photo" name="photo" accept="image/*">
                 <?php if ($user && !empty($user->photo)): ?>
                     <div class="photo-preview">
-                        <img src="images_user/<?= htmlspecialchars($user->photo) ?>" alt="<?= htmlspecialchars($user->name) ?>">
+                        <img src="<?= file_exists("images_user/$user->photo") ? "images_user/" . htmlspecialchars($user->photo) : "images/photo.jpg" ?>" alt="<?= htmlspecialchars($user->name) ?>">
                         <p style="color: #6b7280; font-size: 12px; margin-top: 8px;">Current photo</p>
                     </div>
                 <?php endif; ?>
