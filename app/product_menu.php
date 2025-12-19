@@ -43,10 +43,12 @@ require 'head2.php';
                 $product_disabledAttr = $product_outOfStock ? 'disabled' : '';
                 $product_outLabel = $product_outOfStock ? "<span class='product-out-of-stock'>Out of Stock</span>" : "";
 
+                $p_photo = file_exists("images_product/{$product_item->p_photo}") ? "images_product/{$product_item->p_photo}" : "images/photo.jpg";
+
                 echo "
                 <div class='product-item-row'>
                     <div class='product-item-image'>
-                        <img src='images_product/{$product_item->p_photo}' alt='{$product_item->p_name}' />
+                        <img src='$p_photo' alt='{$product_item->p_name}' />
                     </div>
                     <div class='product-item-text'>
                         <h3>{$product_item->p_name}</h3>
