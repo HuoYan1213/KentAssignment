@@ -1,6 +1,5 @@
 <?php
 include 'base.php';
-include 'head.php';
 $_title = 'Login';
 
 if (is_post()) {
@@ -31,6 +30,7 @@ if (is_post()) {
         }
     }
 }
+include 'head.php';
 ?>
 
 <style>

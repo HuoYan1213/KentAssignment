@@ -75,11 +75,9 @@ function get_file($key) {
 
 // Crop, resize and save photo with numbered filename
 function save_photo($f, $folder, $width = 200, $height = 200, $user_id = null) {
-    // Get the next number by checking existing files
-    $next_number = get_next_photo_number($folder);
-    
-    // Create filename with number
-    $photo = $next_number . '.png';
+    // AWS Fix: 使用唯一 ID 生成文件名，防止並發上傳時的文件覆蓋衝突
+    // 也不再依賴本地文件夾掃描 (因為新實例的文件夾可能是空的)
+    $photo = uniqid() . '.png';
     
     require_once 'lib/SimpleImage.php';
     $img = new SimpleImage();
@@ -312,4 +310,3 @@ function is_exists($value, $table, $field) {
 // ============================================================================
 // Global Constants and Variables
 // ============================================================================
-

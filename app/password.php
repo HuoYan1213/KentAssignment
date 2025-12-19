@@ -1,6 +1,5 @@
 <?php
 require 'base.php';
-require 'head2.php';
 
 $_title = 'User | Password';
 
@@ -64,6 +63,7 @@ if (is_post()) {
         redirect('main.php');
     }
 }
+require 'head2.php';
 ?>
 
 <div class="password-page">

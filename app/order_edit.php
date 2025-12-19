@@ -1,6 +1,5 @@
 <?php
 require 'base.php';
-require 'head2.php';
 
 $edit_id = $_GET['edit_id'] ?? null;
 $order = null;
@@ -42,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+require 'head2.php';
 ?>
 
 <style>

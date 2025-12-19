@@ -1,6 +1,5 @@
 <?php
 include 'base.php';
-include 'head.php';
 // ----------------------------------------------------------------------------
 
 if (is_post()) {
@@ -66,6 +65,9 @@ if (is_post()) {
      if (!$_err) {
 
         // (1) Save photo
+        if (!is_dir('images_user')) {
+            mkdir('images_user', 0777, true);
+        }
         $photo = save_photo($f, 'images_user');
         
         //  Insert user (member)

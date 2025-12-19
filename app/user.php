@@ -1,6 +1,5 @@
 <?php
 require 'base.php';
-require 'head2.php';
 require '_pager.php';
 
 $id = $_GET['id'] ?? '';
@@ -44,6 +43,7 @@ if ($role) {
     $pager = new pager($sql, $params, 5, $page);
     
 }
+require 'head2.php';
 ?>
 
 <style>

@@ -1,6 +1,5 @@
 <?php
 require 'base.php';
-require 'head2.php';
 
 // ----------------------------------------------------------------------------
 
@@ -54,6 +53,7 @@ if (is_post()) {
         redirect('login.php');
     }
 }
+require 'head2.php';
 
 ?>
 
@@ -71,4 +71,3 @@ if (is_post()) {
         <button type="reset">Reset</button>
     </section>
 </form>
-

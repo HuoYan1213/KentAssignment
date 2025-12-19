@@ -1,6 +1,5 @@
 <?php
 require 'base.php';
-require 'head2.php';
 
 $_title = 'User | Profile';
 
@@ -15,16 +14,18 @@ if (is_get()) {
     }
 
     extract((array)$u);
-    $_SESSION['photo'] = $u->photo;
 }
 
 if (is_post()) {
     $email = req('email');
     $name  = req('name');
-    $photo = $_SESSION['photo'];
+    
+    $stm = $_db->prepare('SELECT photo FROM user WHERE id = ?');
+    $stm->execute([$_user->id]);
+    $photo = $stm->fetchColumn();
+
     $f = get_file('photo');
 
-    // Validate: email
     if ($email == '') {
         $_err['email'] = 'Required';
     }
@@ -69,7 +70,9 @@ if (is_post()) {
 
         // (1) Delete and save photo --> optional
         if ($f) {
-            unlink("images_user/$photo");
+            if ($photo && $photo !== 'default.jpg' && file_exists("images_user/$photo")) {
+                unlink("images_user/$photo");
+            }
             $photo = save_photo($f, 'images_user');
         }
         
@@ -90,6 +93,7 @@ if (is_post()) {
         redirect('profile.php');
     }
 }
+require 'head2.php';
 ?>
 
 <div class="profile-page">
@@ -113,7 +117,8 @@ if (is_post()) {
                 <label for="photo">Profile Photo</label>
                 <label class="upload-photo">
                     <?= html_file('photo', 'image/*', 'hidden') ?>
-                    <img src="images_user/<?= $photo ?>" alt="Profile photo">
+                    <!-- AWS Fix: 檢查文件是否存在，如果因實例重啟導致圖片丟失，則顯示默認圖 -->
+                    <img src="<?= file_exists("images_user/$photo") ? "images_user/$photo" : "images/photo.jpg" ?>" alt="Profile photo">
                 </label>
                 <span class="upload-hint">Click photo to change</span>
                 <div class="err"><?= err('photo') ?></div>

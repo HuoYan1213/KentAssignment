@@ -1,6 +1,5 @@
 <?php
 require 'base.php';
-require 'head2.php';
 require '_pager.php';
 
 $f_id = $_GET['f_id'] ?? '';
@@ -46,6 +45,7 @@ if ($status !== '' && $status !== 'All') {
 $sql .= " ORDER BY $sort_by $sort_order";
 
 $pager = new pager($sql, $params, 5, $page);
+require 'head2.php';
 ?>
 
 <style>
