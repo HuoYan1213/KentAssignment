@@ -39,6 +39,13 @@ try {
 
     // STEP 2: insert order_items
     $itemStmt = $_db->prepare("INSERT INTO order_items (o_id, p_id, quantity, price) VALUES (?, ?, ?, ?)");
+    // STEP 3: edit product quantity
+    $stockStmt = $_db->prepare("
+        UPDATE product
+        SET p_quantity = p_quantity - ?
+        WHERE p_id = ? AND p_quantity >= ?
+    ");
+
     foreach ($cart['items'] as $item) {
         $itemStmt->execute([
             $orderId,
@@ -46,7 +53,25 @@ try {
             $item['quantity'],
             $item['price']
         ]);
+
+        $stockStmt->execute([
+            $item['quantity'], 
+            $item['id'],   
+            $item['quantity'] 
+        ]);
+
+        if ($stockStmt->rowCount() === 0) {
+            throw new Exception('Insufficient stock');
+        }
     }
+
+    // STEP 3: edit product quantity
+    $stockStmt = $_db->prepare("
+        UPDATE product
+        SET p_quantity = p_quantity - ?
+        WHERE p_id = ? AND p_quantity >= ?
+    ");
+
 
     $_db->commit();
 } catch (Exception $e) {
@@ -221,7 +246,7 @@ try {
 
     <div class="receipt-box">
         <div class="receipt-header">
-            <img src="../images/logo.jpg" alt="JLYY Restaurant">
+            <img src="images/logo.jpg" alt="JLYY Restaurant">
             <h2 style="margin: 12px 0 0 0; color: #0b2c3d;">Order Receipt</h2>
         </div>
 
@@ -256,9 +281,9 @@ try {
     </div>
 
     <div class="action-buttons">
-        <a href="../product/product.php" class="btn">Continue Shopping</a>
-        <a href="../user/history.php" class="btn btn-secondary">View Orders</a>
-        <a href="../main.php" class="btn btn-secondary">Back to Home</a>
+        <a href="product_menu.php" class="btn">Continue Shopping</a>
+        <a href="history.php" class="btn btn-secondary">View Orders</a>
+        <a href="main.php" class="btn btn-secondary">Back to Home</a>
     </div>
 </div>
 

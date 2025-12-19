@@ -11,7 +11,7 @@ if (is_get()) {
     $u = $stm->fetch();
 
     if (!$u) {
-        redirect('/');
+        redirect('main.php');
     }
 
     extract((array)$u);

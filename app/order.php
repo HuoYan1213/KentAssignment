@@ -12,10 +12,17 @@ $sort_order = $_GET['sort_order'] ?? 'ASC';
 
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
+
+    
+    $_db->prepare('DELETE FROM order_items WHERE o_id = ?')->execute([$delete_id]);
+
+    
     $_db->prepare('DELETE FROM orders WHERE o_id = ?')->execute([$delete_id]);
+
     header('Location: order.php?action=deleted');
     exit;
 }
+
 
 $sql = 'SELECT * FROM orders WHERE 1';
 $params = [];

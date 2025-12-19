@@ -13,7 +13,7 @@
     <!-- Policy & Product -->
     <div class="bw-footer-column">
       <h4 class="bw-footer-title">Policy & Offerings</h4>
-      <a href="product.php">Menu</a>
+      <a href="user_product.php">Menu</a>
       <a href="term_policies.php">Terms & Conditions</a>
     </div>
 

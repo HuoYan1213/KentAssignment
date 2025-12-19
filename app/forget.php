@@ -28,7 +28,7 @@ if (is_post()) {
         ');
         $stm->execute([$u->id, $id, $u->id]);
 
-        $url = "/var/www/html/HewAss/app/user/token.php?id=$id";
+        $url = "http://assalb-1812800203.us-east-1.elb.amazonaws.com/app/token.php?id=$id";
 
         $m = get_mail();
         $m->addAddress($u->email, $u->name);
