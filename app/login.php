@@ -13,13 +13,12 @@ if (is_post()) {
 
     if (!$_err) {
         $stm = $_db->prepare('
-            SELECT * FROM user
-            WHERE email = ? AND password = SHA1(?)
+            SELECT * FROM user WHERE email = ?
         ');
-        $stm->execute([$email, $password]);
+        $stm->execute([$email]);
         $u = $stm->fetch();
 
-        if ($u) {
+        if ($u && password_verify($password, $u->password)) {
             login($u);
             temp('info', 'Login successfully');
             header('Location: index.php');

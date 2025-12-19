@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 include 'base.php';
 // ----------------------------------------------------------------------------
 
@@ -73,9 +77,10 @@ if (is_post()) {
         //  Insert user (member)
         $stm = $_db->prepare('
             INSERT INTO user (email, password, name, role, photo)
-            VALUES (?, SHA1(?), ?, "member", ?)
+            VALUES (?, ?, ?, "member", ?)
         ');
-        $stm->execute([$email, $password, $name, $photo]);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $stm->execute([$email, $hashed_password, $name, $photo]);
 
         temp('info', 'Record inserted');
         redirect('login.php');

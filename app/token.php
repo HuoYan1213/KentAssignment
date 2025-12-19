@@ -42,12 +42,13 @@ if (is_post()) {
         // TODO: Update user (password) based on token id + delete token
         $stm = $_db->prepare('
             UPDATE user
-            SET password = SHA1(?)
+            SET password = ?
             WHERE id = (SELECT user_id FROM token WHERE id = ?);
 
             DELETE FROM token WHERE id = ?;
         ');
-        $stm->execute([$password, $id, $id]);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $stm->execute([$hashed_password, $id, $id]);
 
         temp('info', 'Record updated');
         redirect('login.php');

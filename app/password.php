@@ -18,13 +18,7 @@ if (is_post()) {
         $_err['password'] = 'Between 5-100 characters';
     }
     else {
-        $stm = $_db->prepare('
-            SELECT COUNT(*) FROM user
-            WHERE password = SHA1(?) AND id =?
-        ');
-        $stm->execute([$password, $_user->id]);
-        
-        if ($stm->fetchColumn() == 0) {
+        if (!password_verify($password, $_user->password)) {
             $_err['password'] = 'Not matched';
         }
     }
@@ -54,10 +48,11 @@ if (is_post()) {
         // Update user (password)
         $stm = $_db->prepare('
             UPDATE user
-            SET password = SHA1(?)
+            SET password = ?
             WHERE id = ?
         ');
-        $stm->execute([$new_password, $_user->id]);
+        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+        $stm->execute([$hashed_password, $_user->id]);
 
         temp('info', 'Record updated');
         redirect('main.php');

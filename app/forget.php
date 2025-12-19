@@ -30,19 +30,23 @@ if (is_post()) {
 
         $url = "http://assalb-1812800203.us-east-1.elb.amazonaws.com/app/token.php?id=$id";
 
-        $m = get_mail();
-        $m->addAddress($u->email, $u->name);
-        $m->isHTML(true);
-        $m->Subject = 'Reset Password';
-        $m->Body = "
-            <p>Dear $u->name,</p>
-            <h2 style='color:#0b2c3d'>Reset Password</h2>
-            <p>
-                Click <a href='$url'>here</a> to reset your password.
-            </p>
-            <p>From, JLYY Admin</p>
-        ";
-        $m->send();
+        try {
+            $m = get_mail();
+            $m->addAddress($u->email, $u->name);
+            $m->isHTML(true);
+            $m->Subject = 'Reset Password';
+            $m->Body = "
+                <p>Dear $u->name,</p>
+                <h2 style='color:#0b2c3d'>Reset Password</h2>
+                <p>
+                    Click <a href='$url'>here</a> to reset your password.
+                </p>
+                <p>From, JLYY Admin</p>
+            ";
+            $m->send();
+        } catch (Exception $e) {
+            $_err['email'] = "Failed to send email. Please try again later or contact support. Mailer Error: {$m->ErrorInfo}";
+        }
 
         temp('info', 'Reset link sent to your email');
         redirect('login.php');
