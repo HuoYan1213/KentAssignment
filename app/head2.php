@@ -55,3 +55,59 @@
         </div>
     </div>
 </nav>
+
+<style>
+    .bw-nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .bw-dropdown {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        height: 100%;
+        padding: 10px 0;
+    }
+
+    .bw-dropdown-menu {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        right: 0; 
+        background-color: #ffffff;
+        min-width: 160px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        z-index: 9999; 
+        overflow: hidden;
+        flex-direction: column;
+        margin-top: 5px; 
+    }
+
+    .bw-dropdown:hover .bw-dropdown-menu {
+        display: flex;
+    }
+
+    .bw-dropdown-menu a {
+        padding: 12px 20px;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        white-space: nowrap;
+        border-bottom: 1px solid #f3f4f6;
+        transition: background 0.2s;
+        display: block;
+    }
+
+    .bw-dropdown-menu a:last-child {
+        border-bottom: none;
+    }
+
+    .bw-dropdown-menu a:hover {
+        background-color: #f9fafb;
+        color: #0566a0;
+    }
+</style>

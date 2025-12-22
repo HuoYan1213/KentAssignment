@@ -18,17 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $p_photo = $product ? $product->p_photo : 'default.jpg';
 
-    if (!empty($_FILES['p_photo']['name'])) {
-        // AWS Linux 環境對文件名敏感 (空格/特殊字符可能導致 404)
-        // 建議：忽略原始文件名，生成安全且唯一的 ID
-        $ext = pathinfo($_FILES['p_photo']['name'], PATHINFO_EXTENSION);
-        $p_photo = date('Ymd_His') . '_' . uniqid() . '.' . $ext;
-        
-        $upload_dir = 'images_product/';
-        if (!is_dir($upload_dir)) {
-            mkdir($upload_dir, 0777, true);
-        }
-        move_uploaded_file($_FILES['p_photo']['tmp_name'], $upload_dir . $p_photo);
+    $f = get_file('p_photo');
+    if ($f) {
+        $upload_dir = 'images_product';
+        if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
+        $p_photo = save_photo($f, $upload_dir);
     }
 
     if ($edit_id) {

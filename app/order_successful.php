@@ -19,9 +19,25 @@ if (!$cartRaw) {
 
 $cart = json_decode($cartRaw, true);
 
+// Validate cart items and calculate total from DATABASE price (Security Fix)
 $subtotal = 0;
+$verifiedItems = [];
+
 foreach ($cart['items'] as $item) {
     $subtotal += $item['price'] * $item['quantity'];
+    // Fetch real price from DB
+    $stmtPrice = $_db->prepare("SELECT p_price FROM product WHERE p_id = ?");
+    $stmtPrice->execute([$item['id']]);
+    $dbPrice = $stmtPrice->fetchColumn();
+
+    if ($dbPrice !== false) {
+        $subtotal += $dbPrice * $item['quantity'];
+        $verifiedItems[] = [
+            'id' => $item['id'],
+            'quantity' => $item['quantity'],
+            'price' => $dbPrice // Use DB price
+        ];
+    }
 }
 
 $packaging = 3.00;
@@ -46,7 +62,7 @@ try {
         WHERE p_id = ? AND p_quantity >= ?
     ");
 
-    foreach ($cart['items'] as $item) {
+    foreach ($verifiedItems as $item) {
         $itemStmt->execute([
             $orderId,
             $item['id'],
@@ -64,14 +80,6 @@ try {
             throw new Exception('Insufficient stock');
         }
     }
-
-    // STEP 3: edit product quantity
-    $stockStmt = $_db->prepare("
-        UPDATE product
-        SET p_quantity = p_quantity - ?
-        WHERE p_id = ? AND p_quantity >= ?
-    ");
-
 
     $_db->commit();
 } catch (Exception $e) {

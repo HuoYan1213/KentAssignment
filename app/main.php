@@ -1,6 +1,6 @@
 <?php
 include 'base.php';
-auth('admin','member');
+// auth('admin','member'); // 允許遊客訪問首頁
 $_title = 'BlueWave Sushi';
 include 'head2.php';
 ?>

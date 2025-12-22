@@ -32,13 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
   
     $photo = $user ? $user->photo : 'default.jpg';
-    if (!empty($_FILES['photo']['name'])) {
-        $photo = $_FILES['photo']['name'];
-        $upload_dir = 'images_user/';
-        if (!is_dir($upload_dir)) {
-            mkdir($upload_dir, 0777, true);
-        }
-        move_uploaded_file($_FILES['photo']['tmp_name'], $upload_dir . $photo);
+    $f = get_file('photo');
+    if ($f) {
+        if (!is_dir('images_user')) mkdir('images_user', 0777, true);
+        $photo = save_photo($f, 'images_user');
     }
 
     if (empty($_err)) {

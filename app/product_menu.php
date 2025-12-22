@@ -244,7 +244,7 @@ require 'head2.php';
 }
 </style>
 
-<script src="../Cart/cart.js"></script>
+<script src="js/cart.js"></script>
 
 <script>
 function productFilterCategory(category) {
